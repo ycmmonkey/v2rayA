@@ -190,6 +190,7 @@ func (v *V2Ray) Configuration(info PriorInfo) (c Configuration, err error) {
 		Protocol: v.Protocol,
 	}
 	port, _ := strconv.Atoi(v.Port)
+        aid, _ := strconv.Atoi(v.Aid)
 	switch strings.ToLower(v.Protocol) {
 	case "vmess", "vless":
 		id := v.ID
@@ -208,7 +209,7 @@ func (v *V2Ray) Configuration(info PriorInfo) (c Configuration, err error) {
 					Users: []coreObj.User{
 						{
 							ID:       id,
-							AlterID:  0,
+							AlterID:  aid,
 							Security: "auto",
 						},
 					},
